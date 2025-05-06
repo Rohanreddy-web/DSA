@@ -1,6 +1,6 @@
 # Data Structures and Algorithms (DSA)
 
-This repository contains implementations and solutions to various Data Structures and Algorithms (DSA) problems in multiple programming languages. The goal of this repository is to help beginners and advanced learners practice and master different data structures and algorithms.
+This repository contains implementations and solutions to various Data Structures and Algorithms (DSA) problems in <h2>JAVA</h2> programming languages. The goal of this repository is to help beginners and advanced learners practice and master different data structures and algorithms.
 
 ## Contents
 
