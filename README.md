@@ -1,10 +1,10 @@
 # <h2>Data Structures and Algorithms (DSA)</h2>
 
 This repository contains implementations and solutions to various Data Structures and Algorithms (DSA) problems in JAVA programming languages.
-<br>
+<br><br>
 NOTE: updates are going in this repo...
 
-## Contents
+## Contents##
 
 1. Arrays
 2. Linked Lists
