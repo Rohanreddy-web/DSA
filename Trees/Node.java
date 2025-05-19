@@ -2,9 +2,10 @@ package Trees;
 import Node;
 
 public class Node<T> {
-    T data;
+    public T data;
     Node<T> left;
     Node<T> right;
+    public Node<Integer> next;
     public Node(T data){
         this.data=data;
         this.left=null;

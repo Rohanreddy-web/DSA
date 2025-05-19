@@ -15,6 +15,7 @@ public class MainG {
         System.out.println(g1.getpar2());
         System.out.println(g1.getpar2().getpar1());
         System.out.println(g1.getpar2().getpar2());
+
         // System.out.println(g1.getpar2());
         // Generics <String>g2=new Generics<String>("rohan", "reddy");
         // System.out.println(g2.getpar1());

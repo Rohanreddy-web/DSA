@@ -1,6 +1,7 @@
 package Trees;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -90,34 +91,31 @@ public class BinaryTree {
     }
 
     // Prints the tree in level-order with child node references
-    public void printLevelNodes(Node<Integer> node) {
+    public ArrayList<ArrayList<Integer>> printLevelNodes(Node<Integer> node) {
         if (node == null) {
-            return;
+            return new ArrayList<>();
         }
-
+       ArrayList<ArrayList<Integer>> list=new ArrayList<>();
         Queue<Node<Integer>> queue = new LinkedList<>();
         queue.add(node);
 
         while (!queue.isEmpty()) {
+            ArrayList<Integer> currentlist=new ArrayList<>();//create a new list every time
             Node<Integer> nodepoiNode = queue.poll();
-            System.out.print(nodepoiNode.data + ":");
+            currentlist.add(nodepoiNode.data);
 
             if (nodepoiNode.left != null) {
-                System.out.print("L:" + nodepoiNode.left.data + ",");
+                currentlist.add(nodepoiNode.left.data);
                 queue.add(nodepoiNode.left);
-            } else {
-                System.out.print("L:-1,");
             }
-
             if (nodepoiNode.right != null) {
-                System.out.print("R:" + nodepoiNode.right.data);
+                  currentlist.add(nodepoiNode.right.data);
                 queue.add(nodepoiNode.right);
-            } else {
-                System.out.print("R:-1");
             }
+            list.add(currentlist);
 
-            System.out.println();
         }
+        return list;
     }
 
     // Prints the tree in pre-order format with structure indication
@@ -160,6 +158,21 @@ public class BinaryTree {
         System.err.println(node.data);
         inOrder(node.right);
     }
+    //Node without sibling
+    public void printnodewithouts(Node<Integer> root){
+        if (root==null) {
+            return;
+        }
+        if (root.left!=null && root.right==null) {
+            System.out.println(root.data);
+        }
+          if (root.right!=null && root.left==null) {
+            System.out.println(root.data);
+        }
+        printnodewithouts(root.left);
+         printnodewithouts(root.right);
+         return;
+    }
     //Remove leaf Nodes in a Binary tree
     public Node<Integer> removeLeafNode(Node<Integer> root){
         if(root==null){
@@ -175,5 +188,48 @@ public class BinaryTree {
         return root;
     }
     //Check tree is Balanced or not
-    
+    public int height(Node<Integer> root){
+        if (root==null) {
+            return 0;
+        }
+        int leftheight=height(root.left);
+        int rightheight=height(root.right);
+        return 1+Math.max(leftheight, rightheight);
+    }
+    public boolean isBalanced(Node<Integer> root){
+        if (root==null) {
+            return true;
+        }
+        int leftheight=height(root.left);
+        int rightheight=height(root.right);
+        if(Math.abs(leftheight-rightheight)>1){
+            return false;
+        }
+        boolean isLSTB=isBalanced(root.left);
+        boolean isRSTB =isBalanced(root.right);
+        if (isLSTB && isRSTB) {// if both true
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
+    //Diameter of a tree
+       int max=0;
+       public Integer postOrder;
+        public  int Diameter(Node<Integer> root){
+            if (root==null) {
+                return 0;
+            }
+            //root node;
+            int lefth=height(root.left);
+            int rihtth=height(root.right);
+            max=Math.max(max,lefth+rihtth);
+            //leftsub tree and right sub tree
+            Diameter(root.left);
+            Diameter(root.right);
+            return max;
+
+        }
 }

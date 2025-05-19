@@ -1,5 +1,6 @@
 import src.info;
 import src.Main;
+import src.info;
 public class outside {
 public static void main(String[] args) {
     info s1=new info();

@@ -1,4 +1,3 @@
-import Trees.Node;
 
 public class Node<T>{
     T data;
