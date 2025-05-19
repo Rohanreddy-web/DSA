@@ -1,6 +1,4 @@
 package Trees;
-import Node;
-
 public class Node<T> {
     public T data;
     Node<T> left;
