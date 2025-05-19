@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Array6 {
     public static void main(String[] args) {
         int[][] arr = {
@@ -11,21 +13,26 @@ public class Array6 {
         int left = 0;//rows
         int right = arr[0].length - 1;//rows
         int bottem = arr.length - 1;//end of the master array
+        ArrayList< ArrayList<Integer>> list=new ArrayList<>();
 
         while (left <= right && top <= bottem) {
             // Print top row
+            ArrayList<Integer> inn=new ArrayList<>();
             for (int i = left; i <= right; i++) {
+                inn.add(arr[top][i]);
                 System.out.print(arr[top][i] + " ");
             }
             top++;
 
             // Print right column
             for (int i = top; i <= bottem; i++) {
+                inn.add(arr[i][right]);
                 System.out.print(arr[i][right] + " ");
             }
             right--;
-
+              // bottom row
                 for (int i = right; i >= left; i--) {
+                    inn.add(arr[bottem][i]);
                     System.out.print(arr[bottem][i] + " ");
                 }
             
@@ -33,10 +40,14 @@ public class Array6 {
 
 
                 for (int i = bottem; i >= top; i--) {
+                  inn.add(  arr[i][left]);
                     System.out.print(arr[i][left] + " ");
                 }
             
                 left++;
+                 list.add(inn);
         }
+        System.out.println();
+        System.out.println(list);
     }
 }
