@@ -95,12 +95,12 @@ public class BinaryTree {
         if (node == null) {
             return new ArrayList<>();
         }
-       ArrayList<ArrayList<Integer>> list=new ArrayList<>();
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
         Queue<Node<Integer>> queue = new LinkedList<>();
         queue.add(node);
 
         while (!queue.isEmpty()) {
-            ArrayList<Integer> currentlist=new ArrayList<>();//create a new list every time
+            ArrayList<Integer> currentlist = new ArrayList<>();// create a new list every time
             Node<Integer> nodepoiNode = queue.poll();
             currentlist.add(nodepoiNode.data);
 
@@ -109,7 +109,7 @@ public class BinaryTree {
                 queue.add(nodepoiNode.left);
             }
             if (nodepoiNode.right != null) {
-                  currentlist.add(nodepoiNode.right.data);
+                currentlist.add(nodepoiNode.right.data);
                 queue.add(nodepoiNode.right);
             }
             list.add(currentlist);
@@ -158,78 +158,111 @@ public class BinaryTree {
         System.err.println(node.data);
         inOrder(node.right);
     }
-    //Node without sibling
-    public void printnodewithouts(Node<Integer> root){
-        if (root==null) {
+
+    // Node without sibling
+    public void printnodewithouts(Node<Integer> root) {
+        if (root == null) {
             return;
         }
-        if (root.left!=null && root.right==null) {
+        if (root.left != null && root.right == null) {
             System.out.println(root.data);
         }
-          if (root.right!=null && root.left==null) {
+        if (root.right != null && root.left == null) {
             System.out.println(root.data);
         }
         printnodewithouts(root.left);
-         printnodewithouts(root.right);
-         return;
+        printnodewithouts(root.right);
+        return;
     }
-    //Remove leaf Nodes in a Binary tree
-    public Node<Integer> removeLeafNode(Node<Integer> root){
-        if(root==null){
+
+    // Remove leaf Nodes in a Binary tree
+    public Node<Integer> removeLeafNode(Node<Integer> root) {
+        if (root == null) {
             return null;
         }
-        if (root.left==null && root.right==null) {
+        if (root.left == null && root.right == null) {
             return null;
         }
-       Node<Integer>left= removeLeafNode(root.left);
-        Node<Integer> right=removeLeafNode(root.right);
-        root.left=left;
-        root.right=right;
+        Node<Integer> left = removeLeafNode(root.left);
+        Node<Integer> right = removeLeafNode(root.right);
+        root.left = left;
+        root.right = right;
         return root;
     }
-    //Check tree is Balanced or not
-    public int height(Node<Integer> root){
-        if (root==null) {
+
+    // Check tree is Balanced or not
+    public int height(Node<Integer> root) {
+        if (root == null) {
             return 0;
         }
-        int leftheight=height(root.left);
-        int rightheight=height(root.right);
-        return 1+Math.max(leftheight, rightheight);
+        int leftheight = height(root.left);
+        int rightheight = height(root.right);
+        return 1 + Math.max(leftheight, rightheight);
     }
-    public boolean isBalanced(Node<Integer> root){
-        if (root==null) {
-            return true;
-        }
-        int leftheight=height(root.left);
-        int rightheight=height(root.right);
-        if(Math.abs(leftheight-rightheight)>1){
-            return false;
-        }
-        boolean isLSTB=isBalanced(root.left);
-        boolean isRSTB =isBalanced(root.right);
-        if (isLSTB && isRSTB) {// if both true
-            return true;
-        }
-        else{
-            return false;
-        }
-        
-    }
-    //Diameter of a tree
-       int max=0;
-       public Integer postOrder;
-        public  int Diameter(Node<Integer> root){
-            if (root==null) {
-                return 0;
-            }
-            //root node;
-            int lefth=height(root.left);
-            int rihtth=height(root.right);
-            max=Math.max(max,lefth+rihtth);
-            //leftsub tree and right sub tree
-            Diameter(root.left);
-            Diameter(root.right);
-            return max;
 
+    public boolean isBalanced(Node<Integer> root) {
+        if (root == null) {
+            return true;
         }
+        int leftheight = height(root.left);
+        int rightheight = height(root.right);
+        if (Math.abs(leftheight - rightheight) > 1) {
+            return false;
+        }
+        boolean isLSTB = isBalanced(root.left);
+        boolean isRSTB = isBalanced(root.right);
+        return (isLSTB && isRSTB) ? true : false;
+    }
+
+    // Diameter of a tree
+    int max = 0;// global max
+
+    public int Diameter(Node<Integer> root) {
+        if (root == null) {
+            return 0;
+        }
+        // root node;
+        int lefth = height(root.left);
+        int rihtth = height(root.right);
+        max = Math.max(max, lefth + rihtth);
+        // leftsub tree and right sub tree
+        Diameter(root.left);
+        Diameter(root.right);
+        return max;
+
+    }
+// Building tree using inorder and preorder
+    public static int find(int in[], int element, int n) {
+        for (int i = 0; i < n; i++) {
+            if (in[i] == element) {
+                return i;
+            }
+        }
+        return -1;
+
+    }
+//importent preorder index is pass as refrence because each recursive call has its one stack space
+    public static Node<Integer> solve(int[] in, int[] pre, int[] preindex, int inorderstart, int inorderend, int n) {
+        if (preindex[0] >= n || inorderstart > inorderend) {
+            return null;
+        }
+        int element = pre[preindex[0]];
+        Node<Integer> root = new Node<Integer>(element);
+        int findinorder = find(in, element, in.length);
+        preindex[0]++;
+        Node<Integer> leftTree = solve(in, pre, preindex, inorderstart, findinorder - 1, n);
+        Node<Integer> rightTree = solve(in, pre, preindex, findinorder + 1, inorderend, n);
+        root.left = leftTree;
+        root.right = rightTree;
+        return root;
+    }
+
+    public static Node<Integer> buildTree(int[] preOrder, int[] inOrder) {
+
+        int[] preindex = { 0 };// shared counter
+        int l = inOrder.length;
+        return solve(inOrder, preOrder, preindex, 0, l - 1, l);
+
+    }
+
 }
