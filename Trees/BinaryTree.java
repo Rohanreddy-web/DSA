@@ -232,6 +232,7 @@ public class BinaryTree {
 
     }
 // Building tree using inorder and preorder
+static int preindex=0;//it shares to recursive calls
     public static int find(int in[], int element, int n) {
         for (int i = 0; i < n; i++) {
             if (in[i] == element) {
@@ -241,27 +242,25 @@ public class BinaryTree {
         return -1;
 
     }
-//importent preorder index is pass as refrence because each recursive call has its one stack space
-    public static Node<Integer> solve(int[] in, int[] pre, int[] preindex, int inorderstart, int inorderend, int n) {
-        if (preindex[0] >= n || inorderstart > inorderend) {
+//FIXME:importent preorder index is pass as refrence because each recursive call has its one stack space
+    public static Node<Integer> solve(int[] in, int[] pre, int inorderstart, int inorderend, int n) {
+        if (preindex >= n || inorderstart > inorderend) {
             return null;
         }
-        int element = pre[preindex[0]];
+        int element = pre[preindex];
         Node<Integer> root = new Node<Integer>(element);
         int findinorder = find(in, element, in.length);
-        preindex[0]++;
-        Node<Integer> leftTree = solve(in, pre, preindex, inorderstart, findinorder - 1, n);
-        Node<Integer> rightTree = solve(in, pre, preindex, findinorder + 1, inorderend, n);
+        preindex++;
+        Node<Integer> leftTree = solve(in, pre, inorderstart, findinorder - 1, n);
+        Node<Integer> rightTree = solve(in, pre,  findinorder + 1, inorderend, n);
         root.left = leftTree;
         root.right = rightTree;
         return root;
     }
 
     public static Node<Integer> buildTree(int[] preOrder, int[] inOrder) {
-
-        int[] preindex = { 0 };// shared counter
         int l = inOrder.length;
-        return solve(inOrder, preOrder, preindex, 0, l - 1, l);
+        return solve(inOrder, preOrder, 0, l - 1, l);
 
     }
 
