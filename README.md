@@ -9,12 +9,11 @@ NOTE: updates are going in this repo...
 1. Arrays
 2. Linked Lists
 3. Stacks and Queues
-4. Hashing
-5. Strings
-6. Trees
-7. Recursion
-8. Searching and Sorting
-9. Object-Oriented Programming (OOP)
+4. Strings
+5. Trees
+6. Recursion
+7. Searching and Sorting
+8. Object-Oriented Programming (OOP)
 
 ## Installation
 
