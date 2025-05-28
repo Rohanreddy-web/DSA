@@ -7,12 +7,12 @@ NOTE: updates are going in this repo...
 ## Contents##
 
 1. Arrays
-2. Linked Lists
-3. Stacks and Queues
-4. Strings
-5. Trees
+2. Strings
+3. Searching and Sorting
+4. Linked Lists
+5. Stacks and Queues
 6. Recursion
-7. Searching and Sorting
+7. Trees
 8. Object-Oriented Programming (OOP)
 
 ## Installation
