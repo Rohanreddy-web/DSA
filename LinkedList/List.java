@@ -17,7 +17,7 @@ public class List {
         arr.add(10);
         arr.add(20);
         arr.add(30);
-        arr.size()
+        arr.size();
         System.out.println(arr.get(1));
         arr.add(2,60);
         int index=arr.indexOf(20);
@@ -25,7 +25,7 @@ public class List {
         Integer i=arr.get(2);//it is object 
         arr.remove(i);
         arr.remove(2);
-        System.out.println(arr);
+        System.out.println(arr.size());
         int arr1[]={10,10,20,20,30,40,50};
         ArrayList<Integer> result=remove(arr1);
         System.out.println(result);

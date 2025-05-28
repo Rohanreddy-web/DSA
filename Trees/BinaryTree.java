@@ -9,16 +9,21 @@ import java.util.Queue;
 public class BinaryTree {
 
     // Manually creates and returns a simple binary tree
-    public Node<Integer> CreateTree() {
-        Node<Integer> root = new Node<Integer>(1);
-        Node<Integer> rootLeft = new Node<Integer>(2);
-        Node<Integer> rootRight = new Node<Integer>(3);
-        Node<Integer> leafR = new Node<Integer>(4);
-        Node<Integer> leafL = new Node<Integer>(5);
-        root.left = rootLeft;
-        root.right = rootRight;
-        rootLeft.left = leafL;
-        rootRight.right = leafR;
+
+    public Node<Integer> createTree() {
+        Node<Integer> root = new Node<>(50);
+        Node<Integer> left = new Node<>(30);
+        Node<Integer> right = new Node<>(70);
+        Node<Integer> leftLeft = new Node<>(20);
+        Node<Integer> leftRight = new Node<>(40);
+        Node<Integer> rightLeft = new Node<>(60);
+        Node<Integer> rightRight = new Node<>(80);
+        root.left = left;
+        root.right = right;
+        left.left = leftLeft;
+        left.right = leftRight;
+        right.left = rightLeft;
+        right.right = rightRight;
         return root;
     }
 
@@ -117,6 +122,36 @@ public class BinaryTree {
         }
         return list;
     }
+    //BFS travresal of a tree
+    public Node<Integer> findNode(Node<Integer> root, int target) {
+    if (root == null) {
+        return null;
+    }
+
+    Queue<Node<Integer>> queue = new LinkedList<>();
+    queue.add(root);
+
+    while (!queue.isEmpty()) {
+        Node<Integer> current = queue.poll();
+
+        // Check if current node is the target
+        if (current.data == target) {
+            return current;
+        }
+
+        // Add children to the queue
+        if (current.left != null) {
+            queue.add(current.left);
+        }
+        if (current.right != null) {
+            queue.add(current.right);
+        }
+    }
+
+    // Node not found
+    return null;
+}
+
 
     // Prints the tree in pre-order format with structure indication
     public void printTree(Node<Integer> node) {
@@ -263,5 +298,6 @@ static int preindex=0;//it shares to recursive calls
         return solve(inOrder, preOrder, 0, l - 1, l);
 
     }
+    
 
 }
