@@ -21,9 +21,9 @@ public class Minbacketrev {
 			}
 		 }
 		int count=0;
-		while(stack.size() >= 2 && !stack.isEmpty()){
+		while(!stack.isEmpty()){
 			 char p1=stack.pop();
-			 char p2=stack.pop();
+			 char p2=stack.peek();
 			 if(p1==p2){
 				 count+=1;
 			 }

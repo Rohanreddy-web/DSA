@@ -29,6 +29,9 @@ public class List {
         int arr1[]={10,10,20,20,30,40,50};
         ArrayList<Integer> result=remove(arr1);
         System.out.println(result);
+         for(ArrayList<Integer> element: arr ){
+          System.out.println(element);
+        }
        
     }
 }
