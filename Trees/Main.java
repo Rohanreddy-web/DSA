@@ -8,11 +8,7 @@ public class Main {
         Node<Integer> root=tree.createTree();
         // Node<Integer> root=tree.CreateTreeInput(true ,0, false);
         // System.out.println(root);
-        System.out.println(tree.NumberofNodes(root));
-        ArrayList<Integer>list=new ArrayList<>();
-        tree.Roottonodepath(list,root, 60);
-       int ans= tree.LCA(root, 40, 60);
-       System.out.println(ans+"is the LCA");
+        // System.out.println(tree.NumberofNodes(root));
         // tree.printTree(root);
         // tree.printLevelNodes(root);
         // tree.postOrder(root);
@@ -39,7 +35,11 @@ public class Main {
       System.out.println(btree.checkBST(root,Integer.MIN_VALUE,Integer.MAX_VALUE));
       int[] arr = {1, 2, 3, 4, 5, 6, 7};
       Node<Integer> r=btree.TreeBST(arr, 0, arr.length-1);
-     tree.printTree(r);
+    //  tree.printTree(r);
+      ArrayList<Integer>list=new ArrayList<>();
+        btree.Roottonodepath(list,root, 60);
+       int ans= btree.LCA(root, 60, 80);
+       System.out.println(ans+"is the LCA");
 
 
     }
