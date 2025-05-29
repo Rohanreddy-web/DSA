@@ -132,7 +132,7 @@ public Node<Integer> TreeBST(int[]arr,int stindex,int endindex){
     }
 
 
-
+// Lowest Common Ancestor
 public int LCA(Node<Integer> root,int x,int y){
     ArrayList<Integer> list1=new ArrayList<>();
     ArrayList<Integer> list2=new ArrayList<>();
