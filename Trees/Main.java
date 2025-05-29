@@ -9,6 +9,10 @@ public class Main {
         // Node<Integer> root=tree.CreateTreeInput(true ,0, false);
         // System.out.println(root);
         System.out.println(tree.NumberofNodes(root));
+        ArrayList<Integer>list=new ArrayList<>();
+        tree.Roottonodepath(list,root, 60);
+       int ans= tree.LCA(root, 40, 60);
+       System.out.println(ans+"is the LCA");
         // tree.printTree(root);
         // tree.printLevelNodes(root);
         // tree.postOrder(root);

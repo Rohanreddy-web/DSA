@@ -122,36 +122,36 @@ public class BinaryTree {
         }
         return list;
     }
-    //BFS travresal of a tree
+
+    // BFS travresal of a tree
     public Node<Integer> findNode(Node<Integer> root, int target) {
-    if (root == null) {
+        if (root == null) {
+            return null;
+        }
+
+        Queue<Node<Integer>> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            Node<Integer> current = queue.poll();
+
+            // Check if current node is the target
+            if (current.data == target) {
+                return current;
+            }
+
+            // Add children to the queue
+            if (current.left != null) {
+                queue.add(current.left);
+            }
+            if (current.right != null) {
+                queue.add(current.right);
+            }
+        }
+
+        // Node not found
         return null;
     }
-
-    Queue<Node<Integer>> queue = new LinkedList<>();
-    queue.add(root);
-
-    while (!queue.isEmpty()) {
-        Node<Integer> current = queue.poll();
-
-        // Check if current node is the target
-        if (current.data == target) {
-            return current;
-        }
-
-        // Add children to the queue
-        if (current.left != null) {
-            queue.add(current.left);
-        }
-        if (current.right != null) {
-            queue.add(current.right);
-        }
-    }
-
-    // Node not found
-    return null;
-}
-
 
     // Prints the tree in pre-order format with structure indication
     public void printTree(Node<Integer> node) {
@@ -266,8 +266,10 @@ public class BinaryTree {
         return max;
 
     }
-// Building tree using inorder and preorder
-static int preindex=0;//it shares to recursive calls
+
+    // Building tree using inorder and preorder
+    static int preindex = 0;// it shares to recursive calls
+
     public static int find(int in[], int element, int n) {
         for (int i = 0; i < n; i++) {
             if (in[i] == element) {
@@ -277,7 +279,9 @@ static int preindex=0;//it shares to recursive calls
         return -1;
 
     }
-//FIXME:importent preorder index is pass as refrence because each recursive call has its one stack space
+
+    // FIXME:importent preorder index is pass as refrence because each recursive
+    // call has its one stack space
     public static Node<Integer> solve(int[] in, int[] pre, int inorderstart, int inorderend, int n) {
         if (preindex >= n || inorderstart > inorderend) {
             return null;
@@ -287,7 +291,7 @@ static int preindex=0;//it shares to recursive calls
         int findinorder = find(in, element, in.length);
         preindex++;
         Node<Integer> leftTree = solve(in, pre, inorderstart, findinorder - 1, n);
-        Node<Integer> rightTree = solve(in, pre,  findinorder + 1, inorderend, n);
+        Node<Integer> rightTree = solve(in, pre, findinorder + 1, inorderend, n);
         root.left = leftTree;
         root.right = rightTree;
         return root;
@@ -298,6 +302,6 @@ static int preindex=0;//it shares to recursive calls
         return solve(inOrder, preOrder, 0, l - 1, l);
 
     }
-    
 
+    
 }

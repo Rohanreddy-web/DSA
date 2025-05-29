@@ -1,4 +1,5 @@
 package Trees;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BST {
@@ -104,6 +105,49 @@ public Node<Integer> TreeBST(int[]arr,int stindex,int endindex){
      root.left=leftTree;
      root.right=rightTree;
      return root;
+}
+// Root node to node path
+    public boolean Roottonodepath(ArrayList<Integer> list, Node<Integer> root, int data) {
+        if (root == null) {
+            return false;
+        }
+        // Add the current node's data to the path
+        list.add(root.data);//bef check add to list
+        // If the current node is the target node, return true (path found)
+        if (root.data == data) {
+            return true;
+        }
+        boolean leftpath = Roottonodepath(list, root.left, data);
+
+        boolean rightpath = Roottonodepath(list, root.right, data);
+         // If the target is found in either subtree, return true
+        if (leftpath || rightpath) {
+            return true;
+        }
+        // If not found in either, remove the current node from the path (backtracking)
+        else {
+            list.remove(list.size() - 1);
+            return false;
+        }
+    }
+
+
+
+public int LCA(Node<Integer> root,int x,int y){
+    ArrayList<Integer> list1=new ArrayList<>();
+    ArrayList<Integer> list2=new ArrayList<>();
+    Roottonodepath(list1, root, x);
+    Roottonodepath(list2, root, y);
+    int ans=0;
+    for (int i = 0; i < Math.max(list1.size(), list2.size()); i++) {
+         if (list1.get(i)==list2.get(i)) {
+            ans=list1.get(i);
+         }
+         else{
+            break;
+         }
+    }
+       return ans;
 }
 
 
