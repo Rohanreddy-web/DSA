@@ -1,6 +1,6 @@
 public class Allindex {
 public static void ALLIndex(int i,int arr[],int n,int key,int count){
- if (i==n) {
+ if (i==n) {//base case
     helper(count, arr,key);
     return;
  }

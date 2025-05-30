@@ -1,4 +1,14 @@
 public class Febnanacci {
+    //factorial of a number
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int ans=factorial(n - 1);
+
+        return n*ans;
+    }
+//Febnanch series
     public static void feban(int a, int b, int n) {
         if (n == 0) {
             return;
@@ -9,17 +19,17 @@ public class Febnanacci {
         System.out.print(c + " ");
         feban(y, c, n - 1);
     }
-    // public static  void feb(){
-    //     int a=0;
-    //     int b=1;
-    //     int n=6;
-    //     while (n!=0) {
-    //         int c=a+b;
-    //         System.out.print(c);
-    //         a=b;
-    //         b=c;
-    //         n--;
-    //     }
+    // public static void feb(){
+    // int a=0;
+    // int b=1;
+    // int n=6;
+    // while (n!=0) {
+    // int c=a+b;
+    // System.out.print(c);
+    // a=b;
+    // b=c;
+    // n--;
+    // }
     // }
 
     // Finding N feb in natural numbers
@@ -41,6 +51,7 @@ public class Febnanacci {
         System.err.println();
         int ans = findfeb(5);
         System.out.println(ans);
-        feb();
+        System.out.println(factorial(5));
+
     }
 }

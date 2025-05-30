@@ -307,6 +307,30 @@ public class BinaryTree {
         return solve(inOrder, preOrder, 0, l - 1, l);
 
     }
+    public static boolean symetricTree(Node<Integer> root){
+        Queue<Node<Integer>> queue=new LinkedList<>();
+        queue.add(root.left);
+        queue.add(root.right);
+        while (!queue.isEmpty()) {
+            Node<Integer>left=queue.poll();//gives address
+            Node<Integer> right=queue.poll();
+              if (left == null && right == null) {
+                continue;
+            }
+            if (left==null || right==null) {
+                return false;
+            }
+            if (left.data!=right.data) {
+                return false;
+            }
+            queue.add(left.left);
+            queue.add(right.right);
+            queue.add(left.right);
+            queue.add(right.left);
+
+        }
+        return true;
+    }
 
     
 }
