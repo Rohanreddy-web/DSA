@@ -97,31 +97,35 @@ public class BinaryTree {
 
     // Prints the tree in level-order with child node references
     public ArrayList<ArrayList<Integer>> printLevelNodes(Node<Integer> node) {
-        if (node == null) {
-            return new ArrayList<>();
-        }
-        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
-        Queue<Node<Integer>> queue = new LinkedList<>();
-        queue.add(node);
-
-        while (!queue.isEmpty()) {
-            ArrayList<Integer> currentlist = new ArrayList<>();// create a new list every time
-            Node<Integer> nodepoiNode = queue.poll();
-            currentlist.add(nodepoiNode.data);
-
-            if (nodepoiNode.left != null) {
-                currentlist.add(nodepoiNode.left.data);
-                queue.add(nodepoiNode.left);
-            }
-            if (nodepoiNode.right != null) {
-                currentlist.add(nodepoiNode.right.data);
-                queue.add(nodepoiNode.right);
-            }
-            list.add(currentlist);
-
-        }
-        return list;
+    ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+    if (node == null) {
+        return result;
     }
+
+    Queue<Node<Integer>> queue = new LinkedList<>();
+    queue.add(node);
+
+    while (!queue.isEmpty()) {
+        int levelSize = queue.size();
+        ArrayList<Integer> currentLevel = new ArrayList<>();
+
+        for (int i = 0; i < levelSize; i++) {
+            Node<Integer> current = queue.poll();
+            currentLevel.add(current.data);
+
+            if (current.left != null) {
+                queue.add(current.left);
+            }
+            if (current.right != null) {
+                queue.add(current.right);
+            }
+        }
+
+        result.add(currentLevel);
+    }
+
+    return result;
+}
 
     // BFS travresal of a tree
     public Node<Integer> findNode(Node<Integer> root, int target) {

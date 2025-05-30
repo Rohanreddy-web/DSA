@@ -18,7 +18,7 @@ public class Main {
         // System.out.println(tree.isBalanced(root));
         // tree.printnodewithouts(root);
         // System.out.println(tree.Diameter(root));
-        // System.out.println(tree.printLevelNodes(root));
+        System.out.println(tree.printLevelNodes(root));
         // int []post={1,2,4,5,3,6,7};
         // int[] pre={4,2,5,1,6,3,7};
         // Node<Integer> start=tree.buildTree(post,pre);
