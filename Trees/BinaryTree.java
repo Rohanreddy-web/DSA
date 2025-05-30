@@ -66,6 +66,7 @@ public class BinaryTree {
 
     // Builds a binary tree using level-order (BFS) input
     public Node<Integer> CreateLevelNodes() {
+        //store all refrences in queue
         Queue<Node<Integer>> queue = new LinkedList<>();
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter root Node: ");
