@@ -1,8 +1,13 @@
 package Trees;
 
 import java.util.Scanner;
+
+import javax.swing.tree.TreeNode;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 // Class for Binary Tree operations
@@ -127,6 +132,46 @@ public class BinaryTree {
 
     return result;
 }
+//FIXME: Binary Tree Zigzag Level Order Traversal
+//  public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+//         if (root == null) {
+//             return new ArrayList<>();
+//         }
+
+//         List<List<Integer>> result = new ArrayList<>();
+//         Queue<TreeNode> queue = new LinkedList<>();
+//         queue.add(root);
+        
+//         int level = 0;  // track level number
+        
+//         while (!queue.isEmpty()) {
+//             int levelSize = queue.size();
+//             List<Integer> currentLevel = new ArrayList<>();
+
+//             for (int i = 0; i < levelSize; i++) {
+//                 TreeNode currentNode = queue.poll();
+//                 currentLevel.add(currentNode.val);
+
+//                 if (currentNode.left != null) {
+//                     queue.add(currentNode.left);
+//                 }
+
+//                 if (currentNode.right != null) {
+//                     queue.add(currentNode.right);
+//                 }
+//             }
+            
+//             // Reverse the current level list if level is odd (zigzag)
+//             if (level % 2 == 1) {
+//                 Collections.reverse(currentLevel);
+//             }
+            
+//             result.add(currentLevel);
+//             level++;
+//         }
+
+//         return result;
+//     }
 
     // BFS travresal of a tree
     public Node<Integer> findNode(Node<Integer> root, int target) {
@@ -307,6 +352,7 @@ public class BinaryTree {
         return solve(inOrder, preOrder, 0, l - 1, l);
 
     }
+    //symetricTree BT
     public static boolean symetricTree(Node<Integer> root){
         Queue<Node<Integer>> queue=new LinkedList<>();
         queue.add(root.left);
@@ -331,6 +377,5 @@ public class BinaryTree {
         }
         return true;
     }
-
     
 }
