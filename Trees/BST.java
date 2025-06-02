@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BST {
-    /*
-     * 50
-     * / \
-     * 30 70
-     * / \ / \
-     * 20 40 60 80
-     */
+    /*  50
+       /  \
+     30    70
+    /  \   /  \
+   20   40 60  80
+  */
     // Time-Complexity: O(H)WhereHIsTheHeightOfTheTree
 
     // Search in BST
@@ -76,7 +75,7 @@ public class BST {
             if (node.data == key) {
                 return node.data;
             }
-            if (node.data < key) {
+            if (node.data <key) {
                 fl = node.data;
                 node = node.right;
             } else {
@@ -98,7 +97,7 @@ public class BST {
         return checkBST(node.left, minval, node.data) && checkBST(node.right, node.data, maxval);
     }
 
-    // Creating a BST using Inorder List
+    // Creating a BTree using Inorder List
     public Node<Integer> TreeBST(int[] arr, int stindex, int endindex) {
         if (stindex > endindex) {
             return null;
@@ -144,7 +143,7 @@ public class BST {
         Roottonodepath(list1, root, x);
         Roottonodepath(list2, root, y);
         int ans = 0;
-        for (int i = 0; i < Math.max(list1.size(), list2.size()); i++) {
+        for (int i = 0; i < Math.min(list1.size(), list2.size()); i++) {
             if (list1.get(i) == list2.get(i)) {
                 ans = list1.get(i);
             } else {

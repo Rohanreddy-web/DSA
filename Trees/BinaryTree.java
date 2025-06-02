@@ -14,6 +14,12 @@ import java.util.Queue;
 public class BinaryTree {
 
     // Manually creates and returns a simple binary tree
+        /*50
+       /  \
+     30    70
+    /  \   /  \
+  20   40 60  80*/
+
 
     public Node<Integer> createTree() {
         Node<Integer> root = new Node<>(50);
@@ -29,6 +35,10 @@ public class BinaryTree {
         left.right = leftRight;
         right.left = rightLeft;
         right.right = rightRight;
+        rightLeft=null;
+        rightRight=null;
+        leftRight=null;
+        leftLeft=null;
         return root;
     }
 
@@ -132,47 +142,6 @@ public class BinaryTree {
 
     return result;
 }
-//FIXME: Binary Tree Zigzag Level Order Traversal
-//  public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-//         if (root == null) {
-//             return new ArrayList<>();
-//         }
-
-//         List<List<Integer>> result = new ArrayList<>();
-//         Queue<TreeNode> queue = new LinkedList<>();
-//         queue.add(root);
-        
-//         int level = 0;  // track level number
-        
-//         while (!queue.isEmpty()) {
-//             int levelSize = queue.size();
-//             List<Integer> currentLevel = new ArrayList<>();
-
-//             for (int i = 0; i < levelSize; i++) {
-//                 TreeNode currentNode = queue.poll();
-//                 currentLevel.add(currentNode.val);
-
-//                 if (currentNode.left != null) {
-//                     queue.add(currentNode.left);
-//                 }
-
-//                 if (currentNode.right != null) {
-//                     queue.add(currentNode.right);
-//                 }
-//             }
-            
-//             // Reverse the current level list if level is odd (zigzag)
-//             if (level % 2 == 1) {
-//                 Collections.reverse(currentLevel);
-//             }
-            
-//             result.add(currentLevel);
-//             level++;
-//         }
-
-//         return result;
-//     }
-
     // BFS travresal of a tree
     public Node<Integer> findNode(Node<Integer> root, int target) {
         if (root == null) {
