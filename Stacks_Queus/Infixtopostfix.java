@@ -23,7 +23,7 @@ public class Infixtopostfix {
 
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
-
+//a+b*(c^b-e)
             // Operand (A-Z, a-z)
             if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
                 ans += ch;

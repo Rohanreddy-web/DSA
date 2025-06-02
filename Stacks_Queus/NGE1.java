@@ -1,11 +1,8 @@
 package Stacks_Queus;
-
-public class NGE1 {
-    
-}
+import java.util.Arrays;
 import java.util.Stack;
+public class NGE1 {
 
-public class Solution {
     public static int[] nextGreaterElement(int[] arr, int n) {
         Stack<Integer> stack = new Stack<>();
         int[] ans = new int[n];
@@ -26,5 +23,10 @@ public class Solution {
 
         return ans;
     }
-}
+    public static void main(String[] args) {
+         int a[]={2,10,12,1,11};
+        int b[]=nextGreaterElement(a,a.length);
+        System.out.println(Arrays.toString(b));
+    }
 
+}
