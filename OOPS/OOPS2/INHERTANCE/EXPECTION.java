@@ -10,9 +10,10 @@ public class EXPECTION {
             System.out.println(a/b);
         }
     }
-   public static int fact(int n) throws FACTEXPECTION{
+   public static int fact(int n) throws RohanExpection{
     if (n<0) {
         throw new FACTEXPECTION("This is a costum expection");
+
     }
      if (n==0) {
         return 1;

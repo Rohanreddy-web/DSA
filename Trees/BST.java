@@ -152,5 +152,39 @@ public class BST {
         }
         return ans;
     }
+  public ArrayList<Integer> getPath(Node<Integer> root, int data) {
+	// Base case: if the root is null, the path doesn't exist
+	if (root == null) {
+		return null;
+	}
+
+	// If the current node's data matches the target, we've found the node
+	if (root.data == data) {
+		ArrayList<Integer> list = new ArrayList<>();
+		list.add(root.data); // Start a new path list with this node's data
+		return list; // Return the path containing only this node
+	}
+
+	// Recursively search for the path in the left subtree
+	ArrayList<Integer> leftPath = getPath(root.left, data);
+
+	// Recursively search for the path in the right subtree
+	ArrayList<Integer> rightPath = getPath(root.right, data);
+
+	// If the target node is found in the left subtree
+	if (leftPath != null) {
+		leftPath.add(root.data); // Add the current node to the path
+		return leftPath; // Return the updated path
+	}
+
+	// If the target node is found in the right subtree
+	if (rightPath != null) {
+		rightPath.add(root.data); // Add the current node to the path
+		return rightPath; // Return the updated path
+	}
+
+	// If the node was not found in either subtree, return null
+	return null;
+}
 
 }

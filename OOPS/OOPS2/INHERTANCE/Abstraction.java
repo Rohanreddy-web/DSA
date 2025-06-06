@@ -8,7 +8,7 @@ abstract class abstractclass {
 
 }
  class  Age extends abstractclass {
-// @Override
+ @Override
 public void getname(){
     System.out.println("nnama");
 }

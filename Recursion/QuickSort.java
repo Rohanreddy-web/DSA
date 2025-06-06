@@ -16,7 +16,8 @@ public class QuickSort {
         while (i < j) {
             if (arr[i] <= pivotelement) {
                 i++;
-            } else if (arr[j] >= pivotelement) {
+            } 
+            else if (arr[j] >= pivotelement) {
                 j--;
             } else {
                 int temp2 = arr[i];
