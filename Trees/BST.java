@@ -167,17 +167,17 @@ public class BST {
 
 	// Recursively search for the path in the left subtree
 	ArrayList<Integer> leftPath = getPath(root.left, data);
-
-	// Recursively search for the path in the right subtree
-	ArrayList<Integer> rightPath = getPath(root.right, data);
-
-	// If the target node is found in the left subtree
+    // If the target node is found in the left subtree
 	if (leftPath != null) {
 		leftPath.add(root.data); // Add the current node to the path
 		return leftPath; // Return the updated path
 	}
 
+	// Recursively search for the path in the right subtree
+	ArrayList<Integer> rightPath = getPath(root.right, data);
+
 	// If the target node is found in the right subtree
+    
 	if (rightPath != null) {
 		rightPath.add(root.data); // Add the current node to the path
 		return rightPath; // Return the updated path

@@ -24,7 +24,7 @@ public class NGE1 {
         return ans;
     }
     public static void main(String[] args) {
-         int a[]={2,10,12,1,11};
+         int a[]={1,2,3,4,5};
         int b[]=nextGreaterElement(a,a.length);
         System.out.println(Arrays.toString(b));
     }

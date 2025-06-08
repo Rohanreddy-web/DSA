@@ -31,7 +31,7 @@ public class Main {
         // Node<Integer> broot=btree.CreateTreeInput(true, 0, false);
         //   tree.printTree(root);
       //  System.out.println( btree.BSTsearch(root, 60));
-      //  btree.Range(10, 30, root);
+       btree.Range(30, 60, root);
        System.out.println(btree.Ceil(root, 75)+"C");
       System.out.println(btree.checkBST(root,Integer.MIN_VALUE,Integer.MAX_VALUE));
       int[] arr = {1, 2, 3, 4, 5, 6, 7};
