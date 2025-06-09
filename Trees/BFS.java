@@ -19,7 +19,6 @@ public class BFS {
 
         while (!queue.isEmpty()) {
             Node<Integer> nodepointer = queue.poll();
-
             System.out.print("Enter leftNode of " + nodepointer.data + ": ");
             int left = sc.nextInt();
             if (left != -1) {
