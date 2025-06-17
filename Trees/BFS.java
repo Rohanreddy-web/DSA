@@ -54,6 +54,7 @@ public class BFS {
 
             for (int i = 0; i < levelSize; i++) {
                 Node<Integer> current = queue.poll();
+                
                 currentLevel.add(current.data);
 
                 if (current.left != null) {
