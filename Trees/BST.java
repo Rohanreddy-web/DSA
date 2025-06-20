@@ -44,8 +44,8 @@ public class BST {
             Range(k1, k2, node.left);
             return;
         } else {
-            Range(k1, k2, node.right);
-            Range(k1, k2, node.left);
+             Range(k1, k2, node.left);
+             Range(k1, k2, node.right);
             return;
         }
 
