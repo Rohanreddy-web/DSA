@@ -99,7 +99,7 @@ public class BST {
 
     // Creating a BTree using Inorder List
     public Node<Integer> TreeBST(int[] arr, int stindex, int endindex) {
-        if (stindex > endindex) {
+        if (stindex >= endindex) {
             return null;
         }
         int mid = (stindex + endindex) / 2;

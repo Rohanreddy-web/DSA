@@ -1,4 +1,5 @@
 package Trees;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -41,12 +42,11 @@ public class BFS {
     // Print the tree in level order traversal, returning list of levels
     public ArrayList<ArrayList<Integer>> printLevelNodes(Node<Integer> node) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        Queue<Node<Integer>> queue = new LinkedList<>();
+        queue.add(node);
         if (node == null) {
             return result;
         }
-
-        Queue<Node<Integer>> queue = new LinkedList<>();
-        queue.add(node);
 
         while (!queue.isEmpty()) {
             int levelSize = queue.size();
@@ -54,7 +54,7 @@ public class BFS {
 
             for (int i = 0; i < levelSize; i++) {
                 Node<Integer> current = queue.poll();
-                
+
                 currentLevel.add(current.data);
 
                 if (current.left != null) {
