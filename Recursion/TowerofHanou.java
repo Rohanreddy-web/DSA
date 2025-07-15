@@ -1,6 +1,6 @@
 public class TowerofHanou {
     public static void towerofhanou(int n, String src,String help,String dest){
-        if (n==1) {
+        if (n==0) {
             System.out.println(n+" "+"plate"+" "+ src+"--->"+dest);
             return;
         }

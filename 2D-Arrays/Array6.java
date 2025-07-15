@@ -14,6 +14,7 @@ public class Array6 {
         int right = arr[0].length - 1;//rows
         int bottem = arr.length - 1;//end of the master array
         ArrayList< ArrayList<Integer>> list=new ArrayList<>();
+        list.contains(list)
 
         while (left <= right && top <= bottem) {
             // Print top row

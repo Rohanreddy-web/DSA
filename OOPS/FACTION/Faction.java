@@ -20,6 +20,7 @@ public class Faction {
         for (int i = 2; i <=smallvalue; i++) {
             if (this.num%i==0&& this.den%i==0) {
                 gcd=i;
+                // System.out.println(gcd);
             }
         }
         this.num=this.num/gcd;

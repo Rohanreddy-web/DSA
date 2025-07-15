@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         Animal a = new Dog();
 a.makeSound();   // ✅ OK — makeSound is in Animal
-a.bark();        // ❌ Compile-time error — bark is not in Animal
+// a.bark();        // ❌ Compile-time error — bark is not in Animal
 
     }
 }

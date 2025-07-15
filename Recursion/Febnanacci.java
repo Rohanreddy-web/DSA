@@ -5,7 +5,6 @@ public class Febnanacci {
             return 1;
         }
         int ans=factorial(n - 1);
-
         return n*ans;
     }
 //Febnanch series
@@ -46,10 +45,10 @@ public class Febnanacci {
         int a = 0, b = 1, c = 0;
         System.out.print(a + " ");
         System.out.print(b + " ");
-        int n = 8;
+        int n = 10;
         feban(a, b, n - 2);
         System.err.println();
-        int ans = findfeb(5);
+        int ans = findfeb(10);
         System.out.println(ans);
         System.out.println(factorial(5));
 

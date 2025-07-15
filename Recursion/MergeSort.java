@@ -16,7 +16,7 @@ public static void divide(int arr2[]){
     divide(right);
     merge(left,right,arr2);
 }
-public static void merge(int left[],int right[],int arr[]){
+public static void merge(int left[],int right[],int arr[]){z
     int i=0,j=0,k=0;
     while (i<left.length && j<right.length) {
         if (left[i]<right[j]) {

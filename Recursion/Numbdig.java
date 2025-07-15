@@ -8,6 +8,6 @@ public class Numbdig {
         return numbdig;
     }
 public static void main(String[] args) {
-System.err.println(count(121));
+System.err.println(count(1281));
 }
 }

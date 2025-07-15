@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class ReplaceString {
 public static String replace(String s,char a,char b){
     if(s.length()==0){
@@ -9,6 +10,9 @@ public static String replace(String s,char a,char b){
     }
     return s.charAt(0)+smalloutput;
 }
+
+
+
 //removing duplicates
 public static String duplicates(String s){
     if (s.length()<=1) {
@@ -68,6 +72,19 @@ d.substring(1);
 System.out.println(convert("1234"));
 // System.out.println((int)((1*Math.pow(10, 3)))+231);
 // integer("1234");
+String s="aaaabcdbddf";
+ArrayList<Character> list=new ArrayList<>();
+for(int i=0;i<s.length();i++){
+    if (!list.contains(s.charAt(i))) {
+        list.add(s.charAt(i));
+    }
+}
+String v="";
+for (char i : list) {
+    v+=i;
+}
+System.out.println(v);
+
 
 }
 }

@@ -21,7 +21,8 @@ public class Ret {
                     count = 0;
                     stack.pop();
                 }
-            } else {
+            } 
+            else {
                 stack.push(ch);
             }
         }

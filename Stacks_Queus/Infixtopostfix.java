@@ -1,4 +1,5 @@
 package Stacks_Queus;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class Infixtopostfix {
@@ -64,5 +65,6 @@ public class Infixtopostfix {
 
     public static void main(String[] args) {
         System.out.println(postfix("a+b*(c^b-e)"));
+     
     }
 }

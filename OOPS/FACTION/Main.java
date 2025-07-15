@@ -2,8 +2,8 @@ package FACTION;
 
 public class Main {
     public static void main(String[] args) {
-        Faction f1=new Faction(2, 3);
-        Faction f2=new Faction(2, 3);
+        Faction f1=new Faction(20, 30);
+        Faction f2=new Faction(3, 5);
         // f1.print(f2);
         // f1.increment();
         // f2.increment();
