@@ -1,5 +1,4 @@
 package Stacks_Queus;
-
 public class StackLL<T> {
     private int topindex = -1;
     private Node<T> pushNode;
